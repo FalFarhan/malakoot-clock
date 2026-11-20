@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#363b46" />
+<title>ساعة الأرض</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%232f5f78%22/%3E%3C/svg%3E" />
+  <script type="module" crossorigin src="./assets/index-j1MXQkwo.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CR7Iuzuo.css">
+</head>
+<body>
+<main id="stage"><div id="wrap"><canvas id="gl"></canvas><canvas id="wind"></canvas><canvas id="face" aria-label="ساعة الخريطة"></canvas></div></main>
+
+<button id="menuBtn" class="fab" title="الإعدادات" aria-label="الإعدادات">☰</button>
+<div id="modeTag" class="tag hidden"></div>
+
+<section id="panel" class="panel hidden" aria-label="الإعدادات">
+  <div class="row">
+    <button id="liveBtn" class="chip on">مباشر</button>
+    <input id="dt" type="datetime-local" step="60" />
+  </div>
+  <div class="row">
+    <label class="lbl">تنقّل بالأيام</label>
+    <input id="scrub" type="range" min="-180" max="180" step="0.01" value="0" />
+  </div>
+  <div class="row speeds" id="speeds">
+    <button data-s="0" class="chip">⏸</button>
+    <button data-s="0.25" class="chip">¼×</button>
+    <button data-s="0.5" class="chip">½×</button>
+    <button data-s="1" class="chip">1×</button>
+    <button data-s="60" class="chip">60×</button>
+    <button data-s="3600" class="chip">3600×</button>
+    <button data-s="86400" class="chip">يوم/ث</button>
+  </div>
+  <div class="row toggles">
+    <label><input type="checkbox" id="tOrbits" checked /> مدارا الشمس والقمر</label>
+    <label><input type="checkbox" id="tTropics" checked /> المداران وخط الاستواء</label>
+    <label><input type="checkbox" id="tTwilight" checked /> الشفق</label>
+    <label><input type="checkbox" id="tArabicNum" /> أرقام عربية (١٢٣)</label>
+    <label><input type="checkbox" id="tWeather" checked /> الطقس الحي</label>
+    <div class="sub">
+      <label><input type="checkbox" id="tClouds" checked /> الغيوم</label>
+      <label><input type="checkbox" id="tPrecip" checked /> الأمطار والثلوج</label>
+      <label><input type="checkbox" id="tWind" checked /> الرياح</label>
+    </div>
+  </div>
+  <div class="row">
+    <label class="lbl">نوع الخريطة</label>
+    <select id="style"><option value="0">واقعية (أقمار صناعية)</option><option value="1">داكنة</option><option value="2">تضاريس</option></select>
+  </div>
+  <div class="row">
+    <button id="geoBtn" class="chip">📍 موقعي</button>
+    <span id="locName" class="muted">الخبر</span>
+  </div>
+  <div id="info" class="info"></div>
+  <p class="credit">صورة الأرض: NASA Visible Earth / Blue Marble. أضواء الليل: NASA Black Marble (عبر NASA GIBS). التضاريس والأعماق: NOAA ETOPO1. (ملكية عامة). الطقس الحي: Open-Meteo (نماذج الطقس الحالية، تحديث كل ساعة تقريباً). الحسابات الفلكية: astronomy-engine.</p>
+</section>
+</body>
+</html>
