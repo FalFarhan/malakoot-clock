@@ -4,8 +4,8 @@
 // - navigations: network-first, falling back to the cached index.html (query strings ignored)
 // - cross-origin (Open-Meteo weather, NASA GIBS tiles): network only; the app degrades gracefully offline
 // Requests for sibling version folders (v1/ ... v5/) under this scope are left alone.
-const VERSION = 'f6d37456da';
-const PRECACHE = ["./","./about.html","./adhan.mp3","./assets/account-vhF0wGYP.js","./assets/dist-3wWlQY2P.js","./assets/index-C2uN4iYQ.css","./assets/index-KujuDkN0.js","./assets/rolldown-runtime-B8xr6ykz.js","./earth-ae.webp","./icon-192.png","./icon-512.png","./index.html","./manifest.webmanifest","./moon.webp","./night-ae.webp","./privacy.html","./sky.json","./terrain-ae.webp"];
+const VERSION = 'ebcfacd7c6';
+const PRECACHE = ["./","./about.html","./adhan.mp3","./assets/account-DruXoFZG.js","./assets/dist-3wWlQY2P.js","./assets/index-C2uN4iYQ.css","./assets/index-Dqq8PX9v.js","./assets/rolldown-runtime-B8xr6ykz.js","./earth-ae.webp","./icon-192.png","./icon-512.png","./index.html","./manifest.webmanifest","./moon.webp","./night-ae.webp","./pricing.html","./privacy.html","./refund.html","./sky.json","./terrain-ae.webp"];
 const CACHE = 'gclock-' + VERSION;
 const SCOPE = new URL(self.registration.scope).pathname;
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting())); });

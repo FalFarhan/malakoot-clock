@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#000000" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="icon-192.png" />
+<title>الأسعار — ساعة الأرض</title>
+<style>
+body { margin: 0; background: #f6f7f9; color: #22262d; font: 16px/1.75 "Segoe UI", Roboto, "Noto Sans Arabic", Tahoma, sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 60px; }
+h1 { font-size: 1.6em; margin: .2em 0 .6em; } h2 { font-size: 1.15em; margin: 1.4em 0 .3em; }
+nav { display: flex; gap: 14px; flex-wrap: wrap; font-size: .95em; margin-bottom: 18px; }
+a { color: #1f5f86; } .muted { color: #6b7280; font-size: .9em; }
+.lang-en { display: none; } html[lang=en] .lang-en { display: block; } html[lang=en] .lang-ar { display: none; }
+footer { margin-top: 40px; border-top: 1px solid #dde1e6; padding-top: 12px; font-size: .88em; color: #555; }
+table{border-collapse:collapse;width:100%;margin:.6em 0;background:#fff} td,th{border:1px solid #dde1e6;padding:8px 10px;text-align:start} th{background:#eef1f4}
+</style>
+<script>
+(function () { var q = new URLSearchParams(location.search).get('lang'); var l = q || localStorage.getItem('gclock-lang') || 'ar';
+  if (q) localStorage.setItem('gclock-lang', q); var h = document.documentElement; h.lang = l; h.dir = l === 'en' ? 'ltr' : 'rtl';
+  document.title = l === 'en' ? 'Pricing — Earth Clock' : 'الأسعار — ساعة الأرض'; })();
+function sw(l) { localStorage.setItem('gclock-lang', l); location.search = '?lang=' + l; return false; }
+</script>
+</head>
+<body><main>
+<nav>
+  <a href="./" class="lang-ar">← العودة إلى الساعة</a><a href="./" class="lang-en">← Back to the clock</a>
+  <a href="privacy.html" class="lang-ar">سياسة الخصوصية</a><a href="privacy.html" class="lang-en">Privacy policy</a>
+  <a href="about.html" class="lang-ar">حول</a><a href="about.html" class="lang-en">About</a>
+  <a href="pricing.html" class="lang-ar">الأسعار</a><a href="pricing.html" class="lang-en">Pricing</a>
+  <a href="refund.html" class="lang-ar">سياسة الاسترداد</a><a href="refund.html" class="lang-en">Refund policy</a>
+  <a href="#" onclick="return sw('en')" class="lang-ar">English</a><a href="#" onclick="return sw('ar')" class="lang-en">العربية</a>
+</nav>
+<section class="lang-ar">
+<h1>الأسعار</h1>
+<p class="muted">الأسعار بالريال السعودي وتشمل ضريبة القيمة المضافة إن وُجدت · آخر تحديث: نوفمبر 2026</p>
+<p>الساعة وأوقات الصلاة والقبلة والتاريخ الهجري <b>مجانية دائماً</b> وبلا حساب.</p>
+<h2>ملكوت Pro</h2>
+<p>يفتح: الطقس الكامل، والتكبير العالي الدقة، وخريطة النجوم والمنازل، والكواكب، والكسوف والخسوف، والودجت.</p>
+<table><tr><th>الخطة</th><th>السعر</th><th>التجديد</th></tr>
+<tr><td>شهري</td><td>12 ر.س</td><td>يتجدد تلقائياً كل شهر حتى تلغيه</td></tr>
+<tr><td>سنوي</td><td>99 ر.س</td><td>يتجدد تلقائياً كل سنة حتى تلغيه (توفير ~31٪)</td></tr>
+<tr><td>مدى الحياة</td><td>249 ر.س</td><td>دفعة واحدة، بلا تجديد</td></tr></table>
+<h2>الدفع والإلغاء</h2>
+<p>على الويب: مدى وفيزا وماستركارد وApple Pay عبر بوابة دفع سعودية مرخّصة. في تطبيق أندرويد: عبر Google Play. يمكنك إلغاء التجديد في أي وقت من حسابك (أو من اشتراكات Google Play)، ويبقى Pro فعالاً حتى نهاية الفترة المدفوعة.</p>
+<p>انظر <a href="refund.html">سياسة الاسترداد</a>. للاستفسار: <a href="mailto:team@malakoot.info">team@malakoot.info</a></p>
+<p class="muted">جميع مزايا Pro مفتوحة مجاناً حالياً خلال فترة الإطلاق.</p>
+</section>
+<section class="lang-en">
+<h1>Pricing</h1>
+<p class="muted">Prices in Saudi riyals (SAR), VAT included where applicable · Last updated: November 2026</p>
+<p>The clock, prayer times, qibla and Hijri date are <b>always free</b>, no account needed.</p>
+<h2>Malakoot Pro</h2>
+<p>Unlocks: full weather, high-resolution zoom, star chart with lunar mansions, planets, solar and lunar eclipses, and the widget.</p>
+<table><tr><th>Plan</th><th>Price</th><th>Renewal</th></tr>
+<tr><td>Monthly</td><td>SAR 12</td><td>Renews automatically every month until you cancel</td></tr>
+<tr><td>Yearly</td><td>SAR 99</td><td>Renews automatically every year until you cancel (save ~31%)</td></tr>
+<tr><td>Lifetime</td><td>SAR 249</td><td>One payment, no renewal</td></tr></table>
+<h2>Payment and cancellation</h2>
+<p>On the web: mada, Visa, Mastercard and Apple Pay through a licensed Saudi payment gateway. In the Android app: through Google Play. You can cancel renewal at any time from your account (or from Google Play subscriptions); Pro stays active until the end of the paid period.</p>
+<p>See the <a href="refund.html">refund policy</a>. Questions: <a href="mailto:team@malakoot.info">team@malakoot.info</a></p>
+<p class="muted">All Pro features are currently unlocked for free during the launch period.</p>
+</section>
+<footer><div class="lang-ar">الحقوق الملكية الفكرية تعود لشركة ملكوت 2027 السعودية (أبلج Ablaj)</div>
+<div class="lang-en">Intellectual property rights © 2027 Malakoot, Saudi Arabia (Ablaj)</div></footer>
+</main></body></html>
