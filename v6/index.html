@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<title>ساعة الأرض</title>
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="apple-touch-icon" href="icon-192.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%232f5f78%22/%3E%3C/svg%3E" />
+  <script type="module" crossorigin src="./assets/index-Ch45uMJK.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-D0L3towB.css">
+</head>
+<body>
+<main id="stage"><canvas id="gl"></canvas><canvas id="wind"></canvas><canvas id="face" aria-label="ساعة الخريطة"></canvas></main>
+<button id="zoomReset" class="fab zr hidden" title="إعادة الحجم" aria-label="إعادة الحجم">⤢</button>
+<button id="kioskExit" class="fab kx hidden" title="خروج من وضع العرض" aria-label="Exit kiosk">✕</button>
+<div id="offline" class="badge hidden" data-en="Offline — weather and zoom tiles unavailable">غير متصل — الطقس وصور التكبير غير متاحة</div>
+<div id="hilalLegend" class="legend hl hidden"></div>
+<button id="langBtn" class="fab lang" title="English / العربية" aria-label="English / العربية">EN</button>
+<div id="legend" class="legend hidden"><div class="bar"></div><div class="ticks"><span>-40</span><span>-20</span><span>0</span><span>20</span><span>40°</span></div></div>
+<footer id="footer" class="footer"><span data-en="Intellectual property rights © 2027 Malakoot, Saudi Arabia (Ablaj)">الحقوق الملكية الفكرية تعود لشركة ملكوت 2027 السعودية (أبلج Ablaj)</span> · <a href="privacy.html" data-en="Privacy">الخصوصية</a> · <a href="about.html" data-en="About">حول</a></footer>
+
+<button id="menuBtn" class="fab" title="الإعدادات" aria-label="الإعدادات">☰</button>
+<div id="modeTag" class="tag hidden"></div>
+
+<section id="panel" class="panel hidden" aria-label="الإعدادات">
+  <div class="row">
+    <button id="liveBtn" class="chip on" data-en="Live">مباشر</button>
+    <input id="dt" type="datetime-local" step="60" />
+  </div>
+  <div class="row">
+    <label class="lbl" data-en="Scrub days">تنقّل بالأيام</label>
+    <input id="scrub" type="range" min="-180" max="180" step="0.01" value="0" />
+  </div>
+  <div class="row speeds" id="speeds">
+    <button data-s="0" class="chip">⏸</button>
+    <button data-s="0.25" class="chip">¼×</button>
+    <button data-s="0.5" class="chip">½×</button>
+    <button data-s="1" class="chip">1×</button>
+    <button data-s="60" class="chip">60×</button>
+    <button data-s="3600" class="chip">3600×</button>
+    <button data-s="86400" class="chip" data-en="day/s">يوم/ث</button>
+    <button id="radarBtn" class="chip" data-en="Radar ±24 h">رادار ±٢٤ س</button>
+  </div>
+  <div class="row toggles">
+    <label><input type="checkbox" id="tOrbits" checked /> <span data-en="Sun & moon paths">مدارا الشمس والقمر</span></label>
+    <label><input type="checkbox" id="tTropics" checked /> <span data-en="Tropics & equator">المداران وخط الاستواء</span></label>
+    <label><input type="checkbox" id="tTwilight" checked /> <span data-en="Twilight">الشفق</span></label>
+    <label><input type="checkbox" id="tStars" /> <span data-en="Star chart">الخريطة النجمية</span> <span class="pro">Pro</span></label>
+    <div class="sub" id="skySub">
+      <label><input type="checkbox" id="kStars" checked /> <span data-en="Stars">النجوم</span></label>
+      <label><input type="checkbox" id="kStarNames" checked /> <span data-en="Star names">أسماء النجوم</span></label>
+      <label><input type="checkbox" id="kConNames" checked /> <span data-en="Constellation names">أسماء الكوكبات</span></label>
+      <label><input type="checkbox" id="kNightOnly" checked /> <span data-en="Night side only">في جهة الليل فقط</span></label>
+    </div>
+    <span class="grp" data-en="Lines & circles">الخطوط والدوائر</span>
+    <div class="sub">
+      <label><input type="checkbox" id="kMeridians" /> <span data-en="Meridians (longitude)">خطوط الطول</span></label>
+      <label><input type="checkbox" id="kConLines" checked /> <span data-en="Constellation lines">خطوط الكوكبات</span></label>
+      <label><input type="checkbox" id="kEquator" checked /> <span data-en="Celestial equator">خط الاستواء السماوي</span></label>
+      <label><input type="checkbox" id="kColures" checked /> <span data-en="Colures">خطا الاعتدال والانقلاب</span></label>
+      <label><input type="checkbox" id="kEcliptic" checked /> <span data-en="Ecliptic">دائرة البروج</span></label>
+      <label><input type="checkbox" id="kMW" checked /> <span data-en="Milky Way">درب التبانة</span></label>
+      <label><input type="checkbox" id="kUTC" checked /> <span data-en="UTC line">خط التوقيت العالمي</span></label>
+    </div>
+    <label><input type="checkbox" id="tRim" /> <span data-en="Outer ring (calendar)">الحلقة الخارجية (التقويم)</span></label>
+    <div class="sub">
+      <label><input type="checkbox" id="kManazil" checked /> <span data-en="Mansions & seasons">المنازل والمواسم</span></label>
+      <label><input type="checkbox" id="kMonths" checked /> <span data-en="Months">الأشهر الميلادية</span></label>
+      <label><input type="checkbox" id="kZodiac" checked /> <span data-en="Zodiac">البروج</span></label>
+      <label><input type="checkbox" id="kPointer" checked /> <span data-en="Sun pointer">مؤشر الشمس</span></label>
+    </div>
+    <label><input type="checkbox" id="kHijriRing" /> <span data-en="Hijri months ring (Umm al-Qura)">حلقة الأشهر الهجرية (أم القرى)</span></label>
+    <label><input type="checkbox" id="tQibla" checked /> <span data-en="Qibla line">خط القبلة</span></label>
+    <label><input type="checkbox" id="tHilal" /> <span data-en="Crescent visibility zones (Yallop)">مناطق رؤية الهلال (يالوب)</span></label>
+    <label><input type="checkbox" id="tEclipse" checked /> <span data-en="Eclipses (Moon's shadow path)">الكسوف (مسار ظل القمر)</span> <span class="pro">Pro</span></label>
+    <div class="sub">
+      <button id="nextSolar" class="chip" data-en="⏭ Next solar eclipse">⏭ الكسوف القادم</button>
+      <button id="nextLunar" class="chip" data-en="⏭ Next lunar eclipse">⏭ الخسوف القادم</button>
+    </div>
+    <label><input type="checkbox" id="tPrayers" checked /> <span data-en="Prayers (rotate with the sun; times for the selected location)">الصلوات (تدور مع الشمس، والأوقات للموقع المختار)</span></label>
+    <div class="sub">
+      <label><input type="checkbox" id="kPrayNames" checked /> <span data-en="Names">الأسماء</span></label>
+      <label><input type="checkbox" id="kPrayTimes" checked /> <span data-en="Times">الأوقات</span></label>
+      <label><input type="checkbox" id="kPrayLines" checked /> <span data-en="Lines">الخطوط</span></label>
+      <label><input type="checkbox" id="kPrayCurves" /> <span data-en="Curves on the map">المنحنيات على الخريطة</span></label>
+      <label><input type="checkbox" id="kIshaTwi" /> <span data-en="Isha by twilight (−17°) instead of Maghrib + 90 min">العشاء بالشفق (−١٧°) بدل المغرب + ٩٠ دقيقة</span></label>
+      <label><input type="checkbox" id="kHanafi" /> <span data-en="Asr: Hanafi (shadow ×2)">العصر: الحنفي (ظل المثلين)</span></label>
+    </div>
+    <label><input type="checkbox" id="tPlanets" checked /> <span data-en="Planets">الكواكب</span> <span class="pro">Pro</span></label>
+    <div class="sub">
+      <label><input type="checkbox" id="kPlDay" /> <span data-en="Also on the day side">في جهة النهار أيضاً</span></label>
+      <label><input type="checkbox" id="kOuter" /> <span data-en="Uranus & Neptune">أورانوس ونبتون</span></label>
+    </div>
+    <label><input type="checkbox" id="tArabicNum" /> <span data-en="Arabic-Indic digits (١٢٣)">أرقام عربية (١٢٣)</span></label>
+    <label><input type="checkbox" id="tWeather" checked /> <span data-en="Weather">الطقس الحي</span> <span class="pro">Pro</span></label>
+    <div class="sub">
+      <label><input type="checkbox" id="tClouds" checked /> <span data-en="Clouds">الغيوم</span></label>
+      <label><input type="checkbox" id="tPrecip" checked /> <span data-en="Rain (radar)">الأمطار (رادار)</span></label>
+      <label><input type="checkbox" id="tTemp" /> <span data-en="Temperature">الحرارة</span></label>
+      <label><input type="checkbox" id="tWind" checked /> <span data-en="Wind">الرياح</span></label>
+      <label><input type="checkbox" id="tCities" checked /> <span data-en="Cities when zoomed">المدن عند التكبير</span></label>
+    </div>
+    <span id="perfNote" class="muted hidden" data-en="Wind was turned off automatically to keep this device smooth (tick it to turn it back on).">أُوقفت الرياح تلقائياً للحفاظ على سلاسة هذا الجهاز (فعّلها لإعادتها).</span>
+    <label><input type="checkbox" id="tSaver" /> <span data-en="Battery saver (lower frame rate, no animation)">توفير البطارية (إطارات أقل وبلا حركة)</span></label>
+  </div>
+  <div class="row toggles">
+    <label><input type="checkbox" id="aOn" /> <span data-en="Prayer alerts">تنبيهات الصلاة</span></label>
+    <div class="sub" id="aSub">
+      <label><span data-en="Alert before">تنبيه قبل</span> <select id="aBefore"><option value="0">0</option><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="30">30</option></select> <span data-en="min">دقيقة</span></label>
+      <label><input type="checkbox" id="aAt" /> <span data-en="At the prayer time">عند دخول الوقت</span></label>
+      <label><span data-en="Sound">الصوت</span> <select id="aSound"><option value="adhan" data-en="Short adhan">أذان قصير</option><option value="tone" data-en="Simple tone">نغمة بسيطة</option><option value="none" data-en="Silent">صامت</option></select></label>
+      <label><input type="checkbox" id="ap-fajr" /> <span data-en="Fajr">الفجر</span></label>
+      <label><input type="checkbox" id="ap-sunrise" /> <span data-en="Sunrise">الشروق</span></label>
+      <label><input type="checkbox" id="ap-dhuhr" /> <span data-en="Dhuhr">الظهر</span></label>
+      <label><input type="checkbox" id="ap-asr" /> <span data-en="Asr">العصر</span></label>
+      <label><input type="checkbox" id="ap-maghrib" /> <span data-en="Maghrib">المغرب</span></label>
+      <label><input type="checkbox" id="ap-isha" /> <span data-en="Isha">العشاء</span></label>
+      <button id="aTest" class="chip" data-en="▶ Test">▶ تجربة</button>
+      <span class="muted" data-en="Background alerts on the web are limited: they are reliable while this page is open and may not arrive when the browser is closed. They will be fully reliable in the store app.">تنبيهات الويب في الخلفية محدودة: تعمل بثبات والصفحة مفتوحة، وقد لا تصل إذا أُغلق المتصفح. وستكون موثوقة تماماً في تطبيق المتجر.</span>
+      <span id="aState" class="muted"></span>
+    </div>
+  </div>
+  <div class="row">
+    <button id="shareBtn" class="chip" data-en="📷 Share snapshot">📷 مشاركة لقطة</button>
+    <button id="kioskBtn" class="chip" data-en="⛶ Display mode">⛶ وضع العرض</button>
+    <a id="widgetLink" class="chip" href="./?view=widget" data-en="◔ Widget view">◔ الساعة المصغّرة</a><span class="pro">Pro</span>
+  </div>
+  <div class="row links">
+    <a href="privacy.html" data-en="Privacy policy">سياسة الخصوصية</a> · <a href="about.html" data-en="About">حول</a>
+  </div>
+  <div class="row toggles">
+    <span class="lbl" data-en="Centre text">نصوص المنتصف</span>
+    <div class="sub">
+      <label><input type="checkbox" id="tCHijri" checked /> <span data-en="Hijri">الهجري</span></label>
+      <label><input type="checkbox" id="tCGreg" checked /> <span data-en="Gregorian">الميلادي</span></label>
+      <label><input type="checkbox" id="tCWx" checked /> <span data-en="Weather">الطقس</span></label>
+      <label><input type="checkbox" id="tCSun" checked /> <span data-en="Sunrise/sunset">الشروق/الغروب</span></label>
+    </div>
+  </div>
+  <div class="row">
+    <label class="lbl" data-en="Map style">نوع الخريطة</label>
+    <select id="style"><option value="0" data-en="Realistic (satellite)">واقعية (أقمار صناعية)</option><option value="1" data-en="Dark">داكنة</option><option value="2" data-en="Terrain">تضاريس</option></select>
+  </div>
+  <div class="row">
+    <label class="lbl" data-en="Location">الموقع</label>
+    <select id="place"><option value="mine" data-en="My location">موقعي</option><option value="makkah" data-en="Makkah">مكة المكرمة</option><option value="madinah" data-en="Madinah">المدينة المنورة</option><option value="riyadh" data-en="Riyadh">الرياض</option><option value="khobar" data-en="Al Khobar">الخبر</option><option value="jeddah" data-en="Jeddah">جدة</option><option value="dammam" data-en="Dammam">الدمام</option></select>
+    <button id="geoBtn" class="chip" data-en="📍 Locate me">📍 موقعي</button>
+    <span id="locName" class="muted">الخبر</span>
+  </div>
+  <div id="info" class="info"></div>
+  <p class="credit" data-en="Earth: NASA Blue Marble Next Generation; night lights: NASA Black Marble 2016 (both via NASA GIBS, high-resolution tiles load as you zoom). Relief & bathymetry: NOAA ETOPO1. Moon: NASA LRO / SVS CGI Moon Kit. Weather: Open-Meteo (10 days past & forecast, finer grid when zoomed), beyond that the Open-Meteo / Copernicus ERA5 archive. Astronomy, planets & prayer times: astronomy-engine (Umm al-Qura rules: Fajr 18.5°, Isha 90 min after Maghrib, 120 in Ramadan). Stars, constellation lines & Milky Way: d3-celestial (Hipparcos/Yale BSC, Stellarium). Mansion dates: Najdi/Gulf calendar (13 days each). Hijri: Umm al-Qura (Intl). Crescent visibility: Yallop (1997) q-test. Adhan audio: “Adhan wiki.oga” by Jarih, Wikimedia Commons, CC BY-SA 3.0.">صورة الأرض: NASA Blue Marble Next Generation، وأضواء الليل: NASA Black Marble 2016 (كلاهما عبر NASA GIBS، وتُحمَّل مربعات عالية الدقة عند التكبير). التضاريس والأعماق: NOAA ETOPO1. القمر: NASA LRO / SVS. الطقس: Open-Meteo (توقعات وماضي ١٠ أيام، وشبكة أدق عند التكبير)، وخارج ذلك أرشيف Open-Meteo / ERA5 من Copernicus. الحسابات الفلكية ومواقع الكواكب وأوقات الصلاة: astronomy-engine (وفق أم القرى: الفجر ١٨٫٥°، والعشاء بعد المغرب بـ٩٠ دقيقة و١٢٠ في رمضان). النجوم وخطوط الكوكبات ودرب التبانة: d3-celestial (Hipparcos/Yale BSC، Stellarium). تواريخ المنازل: التقويم النجدي/الخليجي (١٣ يوماً للطالع). الهجري: أم القرى (Intl). رؤية الهلال: معيار يالوب (1997). صوت الأذان: «Adhan wiki.oga» للمستخدم Jarih، ويكيميديا كومنز، CC BY-SA 3.0.</p>
+</section>
+</body>
+</html>

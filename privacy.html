@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#000000" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="icon-192.png" />
+<title>سياسة الخصوصية — ساعة الأرض</title>
+<style>
+body { margin: 0; background: #f6f7f9; color: #22262d; font: 16px/1.75 "Segoe UI", Roboto, "Noto Sans Arabic", Tahoma, sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 60px; }
+h1 { font-size: 1.6em; margin: .2em 0 .6em; } h2 { font-size: 1.15em; margin: 1.4em 0 .3em; }
+nav { display: flex; gap: 14px; flex-wrap: wrap; font-size: .95em; margin-bottom: 18px; }
+a { color: #1f5f86; } .muted { color: #6b7280; font-size: .9em; }
+.lang-en { display: none; } html[lang=en] .lang-en { display: block; } html[lang=en] .lang-ar { display: none; }
+footer { margin-top: 40px; border-top: 1px solid #dde1e6; padding-top: 12px; font-size: .88em; color: #555; }
+</style>
+<script>
+(function () { var q = new URLSearchParams(location.search).get('lang'); var l = q || localStorage.getItem('gclock-lang') || 'ar';
+  if (q) localStorage.setItem('gclock-lang', q); var h = document.documentElement; h.lang = l; h.dir = l === 'en' ? 'ltr' : 'rtl';
+  document.title = l === 'en' ? 'Privacy policy — Earth Clock' : 'سياسة الخصوصية — ساعة الأرض'; })();
+function sw(l) { localStorage.setItem('gclock-lang', l); location.search = '?lang=' + l; return false; }
+</script>
+</head>
+<body><main>
+<nav>
+  <a href="./" class="lang-ar">← العودة إلى الساعة</a><a href="./" class="lang-en">← Back to the clock</a>
+  <a href="privacy.html" class="lang-ar">سياسة الخصوصية</a><a href="privacy.html" class="lang-en">Privacy policy</a>
+  <a href="about.html" class="lang-ar">حول</a><a href="about.html" class="lang-en">About</a>
+  <a href="#" onclick="return sw('en')" class="lang-ar">English</a><a href="#" onclick="return sw('ar')" class="lang-en">العربية</a>
+</nav>
+<section class="lang-ar">
+<h1>سياسة الخصوصية</h1>
+<p class="muted">آخر تحديث: نوفمبر 2026 · تنطبق على موقع «ساعة الأرض» وتطبيقه على الويب.</p>
+<h2>باختصار</h2>
+<p>لا نجمع أي بيانات شخصية، ولا توجد حسابات، ولا إعلانات، ولا أدوات تتبع أو تحليلات، ولا ملفات تعريف ارتباط (كوكيز) للتتبع.</p>
+<h2>الموقع الجغرافي</h2>
+<p>يُستخدم موقعك على جهازك فقط، ولا يُطلب إلا عند الضغط على زر «📍 موقعي». تُحفظ الإحداثيات في التخزين المحلي للمتصفح (localStorage) لحساب أوقات الصلاة والقبلة والشروق والغروب على جهازك، ولا تُرسل إلينا ولا نخزنها على أي خادم. يمكنك بدلاً من ذلك اختيار مدينة من القائمة.</p>
+<h2>الطقس</h2>
+<p>تأتي بيانات الطقس من خدمة <a href="https://open-meteo.com/">Open-Meteo</a> المفتوحة. لجلب طقس موقعك يرسل المتصفح إحداثيات تقريبية (حتى ثلاث خانات عشرية) مباشرة إلى Open-Meteo، كما تُطلب شبكة عالمية لا ترتبط بموقعك. تخضع هذه الطلبات لسياسة خصوصية Open-Meteo. تُخزَّن نتائج الطقس مؤقتاً على جهازك (IndexedDB) لتقليل الطلبات وللعمل دون اتصال.</p>
+<h2>الخرائط والصور</h2>
+<p>عند التكبير تُحمّل مربعات صور عالية الدقة من خدمة NASA GIBS العامة. وككل طلب على الإنترنت، يرى مزوّد الخدمة عنوان IP الخاص بك، ولا نرسل معه أي معلومات أخرى. الموقع مستضاف على GitHub Pages التي قد تحتفظ بسجلات تقنية عادية لدى الخادم.</p>
+<h2>التنبيهات</h2>
+<p>تُحسب تنبيهات الصلاة وتُعرض على جهازك فقط بعد موافقتك على الإشعارات. لا يوجد خادم إشعارات ولا نعرف متى أو أين تستخدم التطبيق.</p>
+<h2>التخزين على الجهاز</h2>
+<p>نحفظ إعداداتك (اللغة، والطبقات المختارة، والموقع، وإعدادات التنبيه) في متصفحك، ونخزّن ملفات التطبيق للعمل دون اتصال. يمكنك حذفها في أي وقت بمسح بيانات الموقع من إعدادات المتصفح.</p>
+<h2>الأطفال</h2>
+<p>لا نجمع بيانات من أي شخص، بمن فيهم الأطفال.</p>
+<h2>التغييرات</h2>
+<p>إذا تغيرت هذه السياسة سنحدّث هذه الصفحة وتاريخها.</p>
+<h2>الجهة المالكة</h2>
+<p>شركة ملكوت، المملكة العربية السعودية (أبلج Ablaj).</p>
+</section>
+<section class="lang-en">
+<h1>Privacy policy</h1>
+<p class="muted">Last updated: November 2026 · Applies to the Earth Clock website and web app.</p>
+<h2>In short</h2>
+<p>We collect no personal data. There are no accounts, no ads, no tracking or analytics tools and no tracking cookies.</p>
+<h2>Location</h2>
+<p>Your location is used on your device only, and is requested only when you press “📍 Locate me”. The coordinates are kept in your browser's local storage (localStorage) to compute prayer times, the qibla and sunrise/sunset on your device. They are never sent to us or stored on any server of ours. You can pick a city from the list instead.</p>
+<h2>Weather</h2>
+<p>Weather comes from the open <a href="https://open-meteo.com/">Open-Meteo</a> service. To fetch the weather for your place, your browser sends approximate coordinates (three decimals) directly to Open-Meteo; a global grid that is not tied to you is also requested. These requests fall under Open-Meteo's privacy policy. Weather results are cached on your device (IndexedDB) to reduce requests and to work offline.</p>
+<h2>Maps and imagery</h2>
+<p>When you zoom in, high-resolution image tiles load from NASA's public GIBS service. As with any web request, the provider sees your IP address; nothing else is sent. The site is hosted on GitHub Pages, which may keep ordinary server logs.</p>
+<h2>Alerts</h2>
+<p>Prayer alerts are computed and shown on your device only, after you allow notifications. There is no push server, and we do not know when or where you use the app.</p>
+<h2>On-device storage</h2>
+<p>Your settings (language, layers, location and alert settings) are saved in your browser, and the app files are cached for offline use. You can delete them at any time by clearing this site's data in your browser settings.</p>
+<h2>Children</h2>
+<p>We collect no data from anyone, children included.</p>
+<h2>Changes</h2>
+<p>If this policy changes, we will update this page and its date.</p>
+<h2>Owner</h2>
+<p>Malakoot, Saudi Arabia (Ablaj).</p>
+</section>
+<footer><div class="lang-ar">الحقوق الملكية الفكرية تعود لشركة ملكوت 2027 السعودية (أبلج Ablaj)</div>
+<div class="lang-en">Intellectual property rights © 2027 Malakoot, Saudi Arabia (Ablaj)</div></footer>
+</main></body></html>

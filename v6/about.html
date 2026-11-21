@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#000000" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="icon-192.png" />
+<title>حول — ساعة الأرض</title>
+<style>
+body { margin: 0; background: #f6f7f9; color: #22262d; font: 16px/1.75 "Segoe UI", Roboto, "Noto Sans Arabic", Tahoma, sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 60px; }
+h1 { font-size: 1.6em; margin: .2em 0 .6em; } h2 { font-size: 1.15em; margin: 1.4em 0 .3em; }
+nav { display: flex; gap: 14px; flex-wrap: wrap; font-size: .95em; margin-bottom: 18px; }
+a { color: #1f5f86; } .muted { color: #6b7280; font-size: .9em; }
+.lang-en { display: none; } html[lang=en] .lang-en { display: block; } html[lang=en] .lang-ar { display: none; }
+footer { margin-top: 40px; border-top: 1px solid #dde1e6; padding-top: 12px; font-size: .88em; color: #555; }
+</style>
+<script>
+(function () { var q = new URLSearchParams(location.search).get('lang'); var l = q || localStorage.getItem('gclock-lang') || 'ar';
+  if (q) localStorage.setItem('gclock-lang', q); var h = document.documentElement; h.lang = l; h.dir = l === 'en' ? 'ltr' : 'rtl';
+  document.title = l === 'en' ? 'About — Earth Clock' : 'حول — ساعة الأرض'; })();
+function sw(l) { localStorage.setItem('gclock-lang', l); location.search = '?lang=' + l; return false; }
+</script>
+</head>
+<body><main>
+<nav>
+  <a href="./" class="lang-ar">← العودة إلى الساعة</a><a href="./" class="lang-en">← Back to the clock</a>
+  <a href="privacy.html" class="lang-ar">سياسة الخصوصية</a><a href="privacy.html" class="lang-en">Privacy policy</a>
+  <a href="about.html" class="lang-ar">حول</a><a href="about.html" class="lang-en">About</a>
+  <a href="#" onclick="return sw('en')" class="lang-ar">English</a><a href="#" onclick="return sw('ar')" class="lang-en">العربية</a>
+</nav>
+<section class="lang-ar">
+<h1>حول «ساعة الأرض»</h1>
+<p>ساعة عالمية على خريطة مسطحة سمتية: يدور ضوء الشمس والليل والقمر والنجوم فوق الخريطة في وقتها الحقيقي، مع أرقام الساعات الأربع والعشرين حول الحافة.</p>
+<h2>المزايا</h2>
+<p>أوقات الصلاة وفق تقويم أم القرى تدور مع الشمس، وخط القبلة إلى الكعبة المشرفة، والتاريخ الهجري (أم القرى) وحلقة الأشهر الهجرية، وأطوار القمر ومناطق رؤية الهلال (معيار يالوب)، والكسوف والخسوف القادمان مع مسار ظل القمر، والخريطة النجمية والمنازل والبروج، والكواكب، والطقس الحي، والعمل دون اتصال، وتنبيهات الصلاة.</p>
+<h2>المجاني والاحترافي</h2>
+<p>الساعة والصلوات والقبلة والتاريخ الهجري مجانية. الطقس الكامل والتكبير العالي والنجوم والكواكب والكسوف والودجت مزايا احترافية (Pro)، وجميعها مفتوحة حالياً.</p>
+<h2>مصادر البيانات</h2>
+<p>صورة الأرض: NASA Blue Marble وBlack Marble عبر NASA GIBS · التضاريس: NOAA ETOPO1 · القمر: NASA LRO/SVS · الطقس: Open-Meteo وأرشيف ERA5 من Copernicus · الحسابات الفلكية: astronomy-engine · النجوم: d3-celestial (Hipparcos/Yale BSC وStellarium) · صوت الأذان: «Adhan wiki.oga» للمستخدم Jarih على ويكيميديا كومنز، برخصة CC BY-SA 3.0 (قُصّر وحُوّل إلى MP3).</p>
+<h2>تنبيه</h2>
+<p>الأوقات محسوبة فلكياً وقد تختلف دقيقة أو دقيقتين عن التقويم الرسمي؛ وتبقى رؤية الهلال الشرعية للجهات المختصة.</p>
+</section>
+<section class="lang-en">
+<h1>About Earth Clock</h1>
+<p>A world clock on a flat azimuthal map: daylight, night, the moon and the stars move across the map in real time, with the 24 hours around the edge.</p>
+<h2>Features</h2>
+<p>Umm al-Qura prayer times that rotate with the sun, a qibla line to the Kaaba, the Hijri date (Umm al-Qura) and a Hijri month ring, moon phases and crescent visibility zones (Yallop), the next solar and lunar eclipses with the Moon's shadow path, a star chart with lunar mansions and zodiac, planets, live weather, offline use and prayer alerts.</p>
+<h2>Free and Pro</h2>
+<p>The clock, prayers, qibla and Hijri date are free. Full weather, high zoom, stars, planets, eclipses and the widget are Pro features; all of them are unlocked for now.</p>
+<h2>Data sources</h2>
+<p>Earth imagery: NASA Blue Marble and Black Marble via NASA GIBS · Relief: NOAA ETOPO1 · Moon: NASA LRO/SVS · Weather: Open-Meteo and the Copernicus ERA5 archive · Astronomy: astronomy-engine · Stars: d3-celestial (Hipparcos/Yale BSC, Stellarium) · Adhan audio: “Adhan wiki.oga” by Jarih, Wikimedia Commons, CC BY-SA 3.0 (trimmed and converted to MP3).</p>
+<h2>Note</h2>
+<p>Times are computed astronomically and may differ by a minute or two from the official calendar; the official sighting of the crescent remains with the competent authorities.</p>
+</section>
+<footer><div class="lang-ar">الحقوق الملكية الفكرية تعود لشركة ملكوت 2027 السعودية (أبلج Ablaj)</div>
+<div class="lang-en">Intellectual property rights © 2027 Malakoot, Saudi Arabia (Ablaj)</div></footer>
+</main></body></html>
