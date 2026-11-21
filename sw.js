@@ -4,8 +4,8 @@
 // - navigations: network-first, falling back to the cached index.html (query strings ignored)
 // - cross-origin (Open-Meteo weather, NASA GIBS tiles): network only; the app degrades gracefully offline
 // Requests for sibling version folders (v1/ ... v5/) under this scope are left alone.
-const VERSION = 'a257900f92';
-const PRECACHE = ["./","./about.html","./adhan.mp3","./assets/account-1sWzrsBB.js","./assets/dist-3wWlQY2P.js","./assets/esm-BIzAkqoA.js","./assets/esm-BLL4IxCB.js","./assets/esm-ioTX4Z4T.js","./assets/index-C2uN4iYQ.css","./assets/index-Oi0rgSMF.js","./assets/rolldown-runtime-B8xr6ykz.js","./assets/web-Bjyj6S4O.js","./assets/web-C5mrFfXd.js","./assets/web-DUhSABhj.js","./earth-ae.webp","./icon-192.png","./icon-512.png","./index.html","./manifest.webmanifest","./moon.webp","./night-ae.webp","./pricing.html","./privacy.html","./refund.html","./sky.json","./terrain-ae.webp"];
+const VERSION = 'df4a870729';
+const PRECACHE = ["./","./about.html","./adhan.mp3","./assets/account-BnASF9hM.js","./assets/dist-3wWlQY2P.js","./assets/esm-BCcnfl5Z.js","./assets/esm-CqbYPdxF.js","./assets/esm-D3v-dbCD.js","./assets/index-C1XQoSxT.js","./assets/index-C2uN4iYQ.css","./assets/rolldown-runtime-B8xr6ykz.js","./assets/web-BQxKgyNZ.js","./assets/web-Bz9IZtHu.js","./assets/web-CJ9UJ_-M.js","./earth-ae.webp","./icon-192.png","./icon-512.png","./index.html","./manifest.webmanifest","./moon.webp","./night-ae.webp","./pricing.html","./privacy.html","./refund.html","./sky.json","./terrain-ae.webp"];
 const CACHE = 'gclock-' + VERSION;
 const SCOPE = new URL(self.registration.scope).pathname;
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(CACHE).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting())); });
