@@ -9,8 +9,9 @@
 <link rel="apple-touch-icon" href="icon-192.png" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%232f5f78%22/%3E%3C/svg%3E" />
-  <script type="module" crossorigin src="./assets/index-Ch45uMJK.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-D0L3towB.css">
+  <script type="module" crossorigin src="./assets/index-CWNLEMxZ.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-B8xr6ykz.js">
+  <link rel="stylesheet" crossorigin href="./assets/index-BzkcjBz4.css">
 </head>
 <body>
 <main id="stage"><canvas id="gl"></canvas><canvas id="wind"></canvas><canvas id="face" aria-label="ساعة الخريطة"></canvas></main>
@@ -26,6 +27,28 @@
 <div id="modeTag" class="tag hidden"></div>
 
 <section id="panel" class="panel hidden" aria-label="الإعدادات">
+  <details id="acc" class="acc">
+    <summary><span data-en="👤 Account & sync">👤 الحساب والمزامنة</span> <span id="accBadge" class="muted"></span></summary>
+    <div id="accOut">
+      <input id="accUser" type="text" autocomplete="username" maxlength="32" placeholder="اسم المستخدم (للتسجيل)" data-ph-en="Username (for sign-up)" />
+      <input id="accEmail" type="email" autocomplete="email" placeholder="البريد الإلكتروني" data-ph-en="Email" />
+      <input id="accPass" type="password" autocomplete="current-password" placeholder="كلمة المرور" data-ph-en="Password" />
+      <div class="row">
+        <button id="accSignIn" class="chip on" data-en="Sign in">دخول</button>
+        <button id="accSignUp" class="chip" data-en="Create account">إنشاء حساب</button>
+        <button id="accMagic" class="chip" data-en="✉ Email me a link">✉ رابط دخول بالبريد</button>
+      </div>
+      <span class="muted" data-en="Optional: the clock works fully without an account. Signing in syncs your settings between devices.">اختياري: تعمل الساعة كاملة بلا حساب. يتيح الدخول مزامنة إعداداتك بين أجهزتك.</span>
+    </div>
+    <div id="accIn" class="hidden">
+      <div id="accWho"></div><div id="accPlan" class="muted"></div><div id="accSync" class="muted"></div>
+      <div class="row">
+        <button id="accOutBtn" class="chip" data-en="Sign out">تسجيل الخروج</button>
+        <button id="accDelete" class="chip danger" data-en="Delete account">حذف الحساب</button>
+      </div>
+    </div>
+    <div id="accMsg" class="muted"></div>
+  </details>
   <div class="row">
     <button id="liveBtn" class="chip on" data-en="Live">مباشر</button>
     <input id="dt" type="datetime-local" step="60" />
