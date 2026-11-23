@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#000000" />
+<link rel="manifest" href="../manifest.webmanifest" />
+<link rel="icon" href="../icon-192.png" />
+<title>حذف الحساب — ساعة الأرض</title>
+<style>
+body { margin: 0; background: #f6f7f9; color: #22262d; font: 16px/1.75 "Segoe UI", Roboto, "Noto Sans Arabic", Tahoma, sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 60px; }
+h1 { font-size: 1.6em; margin: .2em 0 .6em; } h2 { font-size: 1.15em; margin: 1.4em 0 .3em; }
+nav { display: flex; gap: 14px; flex-wrap: wrap; font-size: .95em; margin-bottom: 18px; }
+a { color: #1f5f86; } .muted { color: #6b7280; font-size: .9em; }
+.lang-en { display: none; } html[lang=en] .lang-en { display: block; } html[lang=en] .lang-ar { display: none; }
+footer { margin-top: 40px; border-top: 1px solid #dde1e6; padding-top: 12px; font-size: .88em; color: #555; }
+ol { padding-inline-start: 1.3em; }
+</style>
+<script>
+(function () { var q = new URLSearchParams(location.search).get('lang'); var l = q || localStorage.getItem('gclock-lang') || 'ar';
+  if (q) localStorage.setItem('gclock-lang', q); var h = document.documentElement; h.lang = l; h.dir = l === 'en' ? 'ltr' : 'rtl';
+  document.title = l === 'en' ? 'Delete account — Earth Clock' : 'حذف الحساب — ساعة الأرض'; })();
+function sw(l) { localStorage.setItem('gclock-lang', l); location.search = '?lang=' + l; return false; }
+</script>
+</head>
+<body><main>
+<nav>
+  <a href="../" class="lang-ar">← العودة إلى الساعة</a><a href="../" class="lang-en">← Back to the clock</a>
+  <a href="../privacy.html" class="lang-ar">سياسة الخصوصية</a><a href="../privacy.html" class="lang-en">Privacy policy</a>
+  <a href="../about.html" class="lang-ar">حول</a><a href="../about.html" class="lang-en">About</a>
+  <a href="../pricing.html" class="lang-ar">الأسعار</a><a href="../pricing.html" class="lang-en">Pricing</a>
+  <a href="../refund.html" class="lang-ar">سياسة الاسترداد</a><a href="../refund.html" class="lang-en">Refund policy</a>
+  <a href="../terms.html" class="lang-ar">الشروط</a><a href="../terms.html" class="lang-en">Terms</a>
+  <a href="../contact.html" class="lang-ar">تواصل</a><a href="../contact.html" class="lang-en">Contact</a>
+  <a href="../delete-account.html" class="lang-ar">حذف الحساب</a><a href="../delete-account.html" class="lang-en">Delete account</a>
+  <a href="#" onclick="return sw('en')" class="lang-ar">English</a><a href="#" onclick="return sw('ar')" class="lang-en">العربية</a>
+</nav>
+
+<section class="lang-ar">
+<h1>حذف الحساب</h1>
+<p class="muted">آخر تحديث: نوفمبر 2026</p>
+<p>الحساب اختياري؛ الساعة تعمل كاملة بدونه. إذا أنشأت حساباً يمكنك حذفه نهائياً في أي وقت.</p>
+<h2>من التطبيق أو الموقع</h2>
+<ol>
+<li>افتح ساعة الأرض (الموقع أو تطبيق ملكوت جوال).</li>
+<li>اضغط زر القائمة (☰)، ثم تبويب <b>الحساب</b>.</li>
+<li>تحت «الحساب والمزامنة» اضغط <b>حذف الحساب</b>، ثم أكّد.</li>
+</ol>
+<p>يُحذف الحساب فوراً بعد التأكيد.</p>
+<h2>بالبريد</h2>
+<p>راسل <a href="mailto:team@malakoot.info">team@malakoot.info</a> من البريد المسجّل في حسابك واطلب حذف الحساب. نرد عادة خلال يومي عمل، ونُكمل الحذف خلال <b>7 أيام</b> من الطلب.</p>
+<h2>ماذا يُحذف</h2>
+<ul>
+<li>حسابك وبريدك الإلكتروني واسم المستخدم (إن وُجد).</li>
+<li>إعداداتك المزامنة في السحابة، وسجل اشتراك Pro الذي نحتفظ به.</li>
+</ul>
+<p>تبقى إعدادات هذا الجهاز على الجهاز حتى تمسح بيانات الموقع أو التطبيق من إعدادات المتصفح أو أندرويد. سجلات الدفع لدى ميسر أو Google Play تبقى لديهم وفق سياساتهم، ولا نرى بيانات بطاقتك. لا يمكن التراجع عن الحذف.</p>
+<p class="muted">انظر أيضاً <a href="../privacy.html">سياسة الخصوصية</a> و<a href="../contact.html">صفحة التواصل</a>.</p>
+</section>
+<section class="lang-en">
+<h1>Delete your account</h1>
+<p class="muted">Last updated: November 2026</p>
+<p>An account is optional; the clock works fully without one. If you created an account, you can delete it permanently at any time.</p>
+<h2>In the app or on the site</h2>
+<ol>
+<li>Open Earth Clock (the website or the ملكوت جوال Android app).</li>
+<li>Tap the menu button (☰), then the <b>Account</b> tab.</li>
+<li>Under “Account &amp; sync”, tap <b>Delete account</b>, then confirm.</li>
+</ol>
+<p>The account is deleted immediately after you confirm.</p>
+<h2>By email</h2>
+<p>Email <a href="mailto:team@malakoot.info">team@malakoot.info</a> from the address on your account and ask for the account to be deleted. We usually reply within two business days, and we complete deletion within <b>7 days</b> of the request.</p>
+<h2>What is deleted</h2>
+<ul>
+<li>Your account, email address, and username (if you set one).</li>
+<li>Your cloud-synced settings, and the Pro subscription record we hold.</li>
+</ul>
+<p>Settings stored on this device stay on the device until you clear this site’s or the app’s data in your browser or Android settings. Payment records at Moyasar or Google Play remain with those providers under their policies; we never see your card details. Deletion cannot be undone.</p>
+<p class="muted">See also the <a href="../privacy.html">privacy policy</a> and the <a href="../contact.html">contact page</a>.</p>
+</section>
+<footer><div class="lang-ar">الحقوق الملكية الفكرية تعود لشركة ملكوت 2027 السعودية (أبلج Ablaj)</div>
+<div class="lang-en">Intellectual property rights © 2027 Malakoot, Saudi Arabia (Ablaj)</div></footer>
+</main></body></html>

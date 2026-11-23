@@ -14,7 +14,7 @@ a { color: #1f5f86; } nav { display: flex; gap: 14px; flex-wrap: wrap; font-size
 <script>
 (function () {
   var path = location.pathname.replace(/\/+$/, '');
-  var map = { '/terms': 'terms.html', '/contact': 'contact.html' };
+  var map = { '/terms': 'terms.html', '/contact': 'contact.html', '/delete-account': 'delete-account.html' };
   var dest = map[path];
   if (dest) { location.replace(dest + location.search + location.hash); return; }
   var q = new URLSearchParams(location.search).get('lang');
