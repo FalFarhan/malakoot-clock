@@ -1,2 +1,0 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./web-OASriQR3.js","./rolldown-runtime-B8xr6ykz.js","./account-DDo-mDxA.js","./index-C6L9Jb_7.js","./index-DUelgwbS.css"])))=>i.map(i=>d[i]);
-import{n as e}from"./rolldown-runtime-B8xr6ykz.js";import{n as t,r as n}from"./account-DDo-mDxA.js";import{n as r,t as i}from"./index-C6L9Jb_7.js";var a=e((()=>{})),o;e((()=>{t(),a(),r(),o=n(`Browser`,{web:()=>i(()=>import(`./web-OASriQR3.js`).then(e=>new e.BrowserWeb),__vite__mapDeps([0,1,2,3,4]),import.meta.url)})}))();export{o as Browser};
