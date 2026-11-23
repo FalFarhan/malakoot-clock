@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#000000" />
+<link rel="manifest" href="../manifest.webmanifest" />
+<link rel="icon" href="../icon-192.png" />
+<title>تواصل معنا — ساعة الأرض</title>
+<style>
+body { margin: 0; background: #f6f7f9; color: #22262d; font: 16px/1.75 "Segoe UI", Roboto, "Noto Sans Arabic", Tahoma, sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 60px; }
+h1 { font-size: 1.6em; margin: .2em 0 .6em; } h2 { font-size: 1.15em; margin: 1.4em 0 .3em; }
+nav { display: flex; gap: 14px; flex-wrap: wrap; font-size: .95em; margin-bottom: 18px; }
+a { color: #1f5f86; } .muted { color: #6b7280; font-size: .9em; }
+.lang-en { display: none; } html[lang=en] .lang-en { display: block; } html[lang=en] .lang-ar { display: none; }
+footer { margin-top: 40px; border-top: 1px solid #dde1e6; padding-top: 12px; font-size: .88em; color: #555; }
+.card { background:#fff; border:1px solid #dde1e6; border-radius:12px; padding:16px 18px; margin:1em 0; }
+</style>
+<script>
+(function () { var q = new URLSearchParams(location.search).get('lang'); var l = q || localStorage.getItem('gclock-lang') || 'ar';
+  if (q) localStorage.setItem('gclock-lang', q); var h = document.documentElement; h.lang = l; h.dir = l === 'en' ? 'ltr' : 'rtl';
+  document.title = l === 'en' ? 'Contact us — Earth Clock' : 'تواصل معنا — ساعة الأرض'; })();
+function sw(l) { localStorage.setItem('gclock-lang', l); location.search = '?lang=' + l; return false; }
+</script>
+</head>
+<body><main>
+<nav>
+  <a href="../" class="lang-ar">← العودة إلى الساعة</a><a href="../" class="lang-en">← Back to the clock</a>
+  <a href="../privacy.html" class="lang-ar">سياسة الخصوصية</a><a href="../privacy.html" class="lang-en">Privacy policy</a>
+  <a href="../about.html" class="lang-ar">حول</a><a href="../about.html" class="lang-en">About</a>
+  <a href="../pricing.html" class="lang-ar">الأسعار</a><a href="../pricing.html" class="lang-en">Pricing</a>
+  <a href="../refund.html" class="lang-ar">سياسة الاسترداد</a><a href="../refund.html" class="lang-en">Refund policy</a>
+  <a href="../terms.html" class="lang-ar">الشروط</a><a href="../terms.html" class="lang-en">Terms</a>
+  <a href="../contact.html" class="lang-ar">تواصل</a><a href="../contact.html" class="lang-en">Contact</a>
+  <a href="#" onclick="return sw('en')" class="lang-ar">English</a><a href="#" onclick="return sw('ar')" class="lang-en">العربية</a>
+</nav>
+
+<section class="lang-ar">
+<h1>تواصل معنا</h1>
+<p class="muted">آخر تحديث: نوفمبر 2026</p>
+<p>يسعدنا سماعك. راسل فريق ملكوت على البريد التالي، وسنرد خلال يومي عمل:</p>
+<div class="card">
+<p style="margin:0;font-size:1.15em"><a href="mailto:team@malakoot.info">team@malakoot.info</a></p>
+<p class="muted" style="margin:.4em 0 0">هذا هو عنوان التواصل للاستفسارات، والاشتراكات، والدعم الفني، والشكاوى.</p>
+</div>
+<h2>ماذا تذكر في الرسالة</h2>
+<ul>
+<li>للاسترداد أو مشكلة في دفعة: تاريخ العملية والبريد المسجّل في حسابك — وفق <a href="../refund.html">سياسة الاسترداد</a>.</li>
+<li>لمشكلة في التطبيق أو الموقع: نوع الجهاز والمتصفح أو إصدار التطبيق، ووصف مختصر لما حدث.</li>
+</ul>
+<h2>المنتجات والأسعار</h2>
+<p>وصف الخدمة والأسعار في <a href="../pricing.html">صفحة الأسعار</a>، وشروط الاستخدام في <a href="../terms.html">الشروط</a>، و<a href="../privacy.html">سياسة الخصوصية</a>.</p>
+</section>
+<section class="lang-en">
+<h1>Contact us</h1>
+<p class="muted">Last updated: November 2026</p>
+<p>We would like to hear from you. Email the Malakoot team at the address below; we reply within two business days:</p>
+<div class="card">
+<p style="margin:0;font-size:1.15em"><a href="mailto:team@malakoot.info">team@malakoot.info</a></p>
+<p class="muted" style="margin:.4em 0 0">This is the contact address for questions, subscriptions, technical support and complaints.</p>
+</div>
+<h2>What to include</h2>
+<ul>
+<li>For a refund or a payment issue: the transaction date and the email on your account — see the <a href="../refund.html">refund policy</a>.</li>
+<li>For a problem with the app or site: your device and browser or app version, and a short description of what happened.</li>
+</ul>
+<h2>Products and prices</h2>
+<p>The service and prices are on the <a href="../pricing.html">pricing page</a>, with the <a href="../terms.html">terms of use</a> and the <a href="../privacy.html">privacy policy</a>.</p>
+</section>
+<footer><div class="lang-ar">الحقوق الملكية الفكرية تعود لشركة ملكوت 2027 السعودية (أبلج Ablaj)</div>
+<div class="lang-en">Intellectual property rights © 2027 Malakoot, Saudi Arabia (Ablaj)</div></footer>
+</main></body></html>
