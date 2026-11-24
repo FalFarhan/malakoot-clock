@@ -24,9 +24,8 @@
   gtag('config', id, { anonymize_ip: true, allow_google_signals: false, allow_ad_personalization_signals: false });
 })();
 </script>
-  <script type="module" crossorigin src="./assets/index-Db0482ro.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-B8xr6ykz.js">
-  <link rel="stylesheet" crossorigin href="./assets/index-DUelgwbS.css">
+  <script type="module" crossorigin src="./assets/index-BBEysGyN.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DTyU5U0p.css">
 </head>
 <body>
 <main id="stage"><canvas id="gl"></canvas><canvas id="wind"></canvas><canvas id="face" aria-label="ساعة الخريطة"></canvas></main>
@@ -39,6 +38,23 @@
 <footer id="footer" class="footer"><span data-en="Intellectual property rights © 2027 Malakoot, Saudi Arabia (Ablaj)">الحقوق الملكية الفكرية تعود لشركة ملكوت 2027 السعودية (أبلج Ablaj)</span> · <a href="privacy.html" data-en="Privacy">الخصوصية</a> · <a href="about.html" data-en="About">حول</a> · <a href="pricing.html" data-en="Pricing">الأسعار</a> · <a href="refund.html" data-en="Refunds">الاسترداد</a> · <a href="terms.html" data-en="Terms">الشروط</a> · <a href="contact.html" data-en="Contact">تواصل</a> · <a href="delete-account.html" data-en="Delete account">حذف الحساب</a></footer>
 
 <button id="menuBtn" class="fab" title="الإعدادات" aria-label="الإعدادات">☰</button>
+<div id="searchWrap" class="search-wrap">
+  <div class="search glass" role="search">
+    <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M15.5 15.5 20 20" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+    <input id="q" type="search" autocomplete="off" enterkeyhint="search" placeholder="ابحث: مدينة، الشمس، كوكب، نجم" data-ph-en="Search a city, Sun, planet, star" aria-label="بحث" />
+    <button id="qClear" class="q-clear hidden" type="button" aria-label="مسح">✕</button>
+  </div>
+  <ul id="qList" class="q-list glass hidden" role="listbox"></ul>
+  <div id="followTag" class="follow-tag glass hidden"></div>
+  <div id="ramadanPill" class="ramadan-pill glass hidden"></div>
+</div>
+<div id="timebar" class="timebar glass hidden" aria-label="شريط الوقت">
+  <button id="tbNow" class="tb-btn" type="button" data-en="Now">الآن</button>
+  <button id="tbPlay" class="tb-btn tb-play" type="button" aria-label="Play">▶</button>
+  <div class="tb-mid"><input id="tbRange" type="range" min="-720" max="720" step="1" value="0" aria-label="تقديم/إرجاع الوقت" /><div id="tbLabel" class="tb-label"></div></div>
+  <button id="tbSpeed" class="tb-btn tb-speed" type="button">60×</button>
+</div>
+<section id="cityCard" class="city-card glass hidden" aria-live="polite"></section>
 <div id="modeTag" class="tag hidden"></div>
 
 <section id="panel" class="panel" aria-label="الإعدادات">
@@ -73,12 +89,21 @@
     </div>
   </div>
   <div class="row">
+    <label class="lbl" for="fontScale" data-en="Text size">حجم الخط</label>
+    <input id="fontScale" type="range" min="80" max="160" step="5" value="100" />
+    <span id="fontScaleVal" class="muted">100%</span>
+  </div>
+  <div class="row toggles">
+    <label><input type="checkbox" id="tRotate" checked /> <span data-en="Home at bottom: orient the map so my meridian points down to the clock">بلدي في الأسفل: توجيه الخريطة ليكون خط طولي نحو الساعة في الأسفل</span></label>
+    <label><input type="checkbox" id="tRamadan" checked /> <span data-en="Ramadan mode (imsak & iftar countdown, automatic in Ramadan)">وضع رمضان (عدّاد الإمساك والإفطار، تلقائي في رمضان)</span></label>
+  </div>
+  <div class="row">
     <label class="lbl" data-en="Map style">نوع الخريطة</label>
     <select id="style"><option value="0" data-en="Realistic (satellite)">واقعية (أقمار صناعية)</option><option value="1" data-en="Dark">داكنة</option><option value="2" data-en="Terrain">تضاريس</option></select>
   </div>
   <div class="row">
     <label class="lbl" data-en="Location">الموقع</label>
-    <select id="place"><option value="mine" data-en="My location">موقعي</option><option value="makkah" data-en="Makkah">مكة المكرمة</option><option value="madinah" data-en="Madinah">المدينة المنورة</option><option value="riyadh" data-en="Riyadh">الرياض</option><option value="khobar" data-en="Al Khobar">الخبر</option><option value="jeddah" data-en="Jeddah">جدة</option><option value="dammam" data-en="Dammam">الدمام</option></select>
+    <select id="place"><option value="mine" data-en="My location">موقعي</option><option value="makkah" data-en="Makkah">مكة المكرمة</option><option value="madinah" data-en="Madinah">المدينة النبوية</option><option value="riyadh" data-en="Riyadh">الرياض</option><option value="khobar" data-en="Al Khobar">الخبر</option><option value="jeddah" data-en="Jeddah">جدة</option><option value="dammam" data-en="Dammam">الدمام</option></select>
     <button id="geoBtn" class="chip" data-en="📍 Locate me">📍 موقعي</button>
     <span id="locName" class="muted">الخبر</span>
   </div>
@@ -113,10 +138,12 @@
     <label><input type="checkbox" id="kHijriRing" /> <span data-en="Hijri months ring (Umm al-Qura)">حلقة الأشهر الهجرية (أم القرى)</span></label>
     <label><input type="checkbox" id="tQibla" checked /> <span data-en="Qibla line">خط القبلة</span></label>
     <label><input type="checkbox" id="tHilal" /> <span data-en="Crescent visibility zones (Yallop)">مناطق رؤية الهلال (يالوب)</span></label>
+    <div class="sub"><label><span data-en="Month">الشهر</span> <select id="hilalMonth"></select></label></div>
     <label><input type="checkbox" id="tEclipse" checked /> <span data-en="Eclipses (Moon's shadow path)">الكسوف (مسار ظل القمر)</span> <span class="pro">Pro</span></label>
     <div class="sub">
       <button id="nextSolar" class="chip" data-en="⏭ Next solar eclipse">⏭ الكسوف القادم</button>
       <button id="nextLunar" class="chip" data-en="⏭ Next lunar eclipse">⏭ الخسوف القادم</button>
+      <ul id="eclList" class="ecl-list"></ul>
     </div>
     <label><input type="checkbox" id="tPrayers" checked /> <span data-en="Prayers (rotate with the sun; times for the selected location)">الصلوات (تدور مع الشمس، والأوقات للموقع المختار)</span></label>
     <div class="sub">
@@ -146,6 +173,11 @@
     <span id="perfNote" class="muted hidden" data-en="Wind was turned off automatically to keep this device smooth (tick it to turn it back on).">أُوقفت الرياح تلقائياً للحفاظ على سلاسة هذا الجهاز (فعّلها لإعادتها).</span>
     <label><input type="checkbox" id="tSaver" /> <span data-en="Battery saver (lower frame rate, no animation)">توفير البطارية (إطارات أقل وبلا حركة)</span></label>
   </div>
+  <details id="shadowTool" class="tool">
+    <summary data-en="🧍 Shadow tool & Asr">🧍 أداة الظل ووقت العصر</summary>
+    <div class="row"><label class="lbl" for="shH" data-en="Object height (m)">طول الشاخص (م)</label><input id="shH" type="number" min="0.1" max="500" step="0.1" value="1.7" /></div>
+    <div id="shOut" class="sh-out"></div>
+  </details>
   <div id="info" class="info"></div>
   
     </div>
@@ -182,6 +214,12 @@
     </div>
     <div id="accMsg" class="muted"></div>
   </details>
+  <div id="fb" class="fb">
+    <div class="fb-h" data-en="💬 Suggestions & feedback">💬 اقتراحاتك وملاحظاتك</div>
+    <textarea id="fbText" maxlength="2000" rows="3" placeholder="اكتب اقتراحك أو ملاحظتك للفريق…" data-ph-en="Write a suggestion or note for the team…"></textarea>
+    <input id="fbEmail" type="email" autocomplete="email" placeholder="بريدك للرد (اختياري)" data-ph-en="Your email for a reply (optional)" />
+    <div class="row"><button id="fbSend" class="chip on" type="button" data-en="Send">إرسال</button><span id="fbMsg" class="muted"></span></div>
+  </div>
     </div>
     <div class="pane" id="pane-alerts" role="tabpanel" data-pane="alerts" aria-labelledby="tab-alerts">
 <div class="row toggles">
@@ -198,8 +236,16 @@
       <label><input type="checkbox" id="ap-maghrib" /> <span data-en="Maghrib">المغرب</span></label>
       <label><input type="checkbox" id="ap-isha" /> <span data-en="Isha">العشاء</span></label>
       <button id="aTest" class="chip" data-en="▶ Test">▶ تجربة</button>
+      <button id="aExact" class="chip hidden" data-en="⏰ Allow exact alarms">⏰ السماح بالمنبهات الدقيقة</button>
       <span class="muted" data-en="Background alerts on the web are limited: they are reliable while this page is open and may not arrive when the browser is closed. They will be fully reliable in the store app.">تنبيهات الويب في الخلفية محدودة: تعمل بثبات والصفحة مفتوحة، وقد لا تصل إذا أُغلق المتصفح. وستكون موثوقة تماماً في تطبيق المتجر.</span>
       <span id="aState" class="muted"></span>
+    </div>
+    <label><input type="checkbox" id="aKaaba" checked /> <span data-en="Sun / Moon over the Kaaba: alert 5 min before (correct your qibla)">تعامد الشمس/القمر على الكعبة: تنبيه قبل ٥ دقائق (لتصحيح القبلة)</span></label>
+    <ul id="kaabaList" class="kaaba-list"></ul>
+    <span class="grp" data-en="Ramadan">رمضان</span>
+    <div class="sub">
+      <label><span data-en="Iftar reminder">تذكير الإفطار</span> <select id="aIftar"><option value="0" data-en="Off">إيقاف</option><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="30">30</option></select> <span data-en="min before Maghrib">دقيقة قبل المغرب</span></label>
+      <label><span data-en="Suhoor reminder">تذكير السحور</span> <select id="aSuhoor"><option value="0" data-en="Off">إيقاف</option><option value="15">15</option><option value="30">30</option><option value="45">45</option><option value="60">60</option></select> <span data-en="min before imsak (Fajr)">دقيقة قبل الإمساك (الفجر)</span></label>
     </div>
   </div>
   
