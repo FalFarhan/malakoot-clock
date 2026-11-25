@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#000000" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="icon-192.png" />
+<title>سياسة الخصوصية — ملكوت واجهة</title>
+<style>
+body { margin: 0; background: #f6f7f9; color: #22262d; font: 16px/1.75 "Segoe UI", Roboto, "Noto Sans Arabic", Tahoma, sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 60px; }
+h1 { font-size: 1.6em; margin: .2em 0 .6em; } h2 { font-size: 1.15em; margin: 1.4em 0 .3em; }
+nav { display: flex; gap: 14px; flex-wrap: wrap; font-size: .95em; margin-bottom: 18px; }
+a { color: #1f5f86; } .muted { color: #6b7280; font-size: .9em; }
+.lang-en { display: none; } html[lang=en] .lang-en { display: block; } html[lang=en] .lang-ar { display: none; }
+footer { margin-top: 40px; border-top: 1px solid #dde1e6; padding-top: 12px; font-size: .88em; color: #555; }
+</style>
+<script>
+(function () { var q = new URLSearchParams(location.search).get('lang'); var l = q || localStorage.getItem('gclock-lang') || 'ar';
+  if (q) localStorage.setItem('gclock-lang', q); var h = document.documentElement; h.lang = l; h.dir = l === 'en' ? 'ltr' : 'rtl';
+  document.title = l === 'en' ? 'Privacy policy — Malakoot Face' : 'سياسة الخصوصية — ملكوت واجهة'; })();
+function sw(l) { localStorage.setItem('gclock-lang', l); location.search = '?lang=' + l; return false; }
+</script>
+</head>
+<body><main>
+<nav>
+  <a href="./" class="lang-ar">← العودة إلى الساعة</a><a href="./" class="lang-en">← Back to the clock</a>
+  <a href="privacy.html" class="lang-ar">سياسة خصوصية الساعة</a><a href="privacy.html" class="lang-en">Clock privacy policy</a>
+  <a href="watchface-privacy.html" class="lang-ar">سياسة خصوصية الواجهة</a><a href="watchface-privacy.html" class="lang-en">Watch face privacy</a>
+  <a href="contact.html" class="lang-ar">تواصل</a><a href="contact.html" class="lang-en">Contact</a>
+  <a href="#" onclick="return sw('en')" class="lang-ar">English</a><a href="#" onclick="return sw('ar')" class="lang-en">العربية</a>
+</nav>
+<section class="lang-ar">
+<h1>سياسة الخصوصية — ملكوت واجهة</h1>
+<p class="muted">آخر تحديث: 25 نوفمبر 2026 · تنطبق على تطبيق واجهة الساعة «ملكوت واجهة» على Wear OS (المعرّف: info.malakoot.watchface).</p>
+<p>هذه الواجهة تطبيق موارد فقط، بلا شيفرة تعمل على ساعتك، ولا تجمع أي بيانات ولا ترسل شيئاً إلينا.</p>
+<h2>ما لا نجمعه</h2>
+<p>لا حساب، ولا تسجيل دخول، ولا تحليلات، ولا إعلانات. لا نأخذ موقعك الجغرافي، ولا نبضك، ولا خطواتك، ولا إشعاراتك، ولا حالة الطقس، ولا أي معرّف للجهاز. لا خادم لنا تستدعيه الواجهة، ولا ملفات تعريف ارتباط، ولا نحتفظ بسجلات عن استخدامك.</p>
+<h2>ما يظهر على الساعة</h2>
+<p>الوقت والتاريخ والتقويم الهجري (أم القرى) تُحسب على ساعتك من إعدادات النظام. الخريطة وأسلوبها والإعدادات التي تختارها تبقى على الساعة فقط. إذا فعّلت الطقس على Wear OS 5 فما فوق، فالبيانات تأتي من نظام الساعة وليس من خوادمنا. الخانات الإضافية (مثل البطارية أو الخطوات أو أوقات الصلاة من تطبيق ملكوت ساعة إن كان مثبتاً) يعرضها نظام الساعة أو التطبيق الذي تختاره؛ نحن لا نستلم هذا المحتوى.</p>
+<h2>الأذونات</h2>
+<p>التطبيق لا يطلب أي أذونات خاصة.</p>
+<h2>الأطفال</h2>
+<p>الواجهة ليست موجّهة للأطفال دون 13 سنة، ونحن لا نجمع بياناتهم.</p>
+<h2>التغييرات</h2>
+<p>إذا تغيّرت هذه السياسة نحدّث هذه الصفحة وتاريخها.</p>
+<h2>المالك</h2>
+<p>ملكوت، المملكة العربية السعودية (أبلج Ablaj). للتواصل: <a href="mailto:team@malakoot.info">team@malakoot.info</a></p>
+<p>سياسة خصوصية موقع وتطبيق «ساعة ملكوت» منفصلة، وهي على <a href="privacy.html">هذه الصفحة</a>.</p>
+</section>
+<section class="lang-en">
+<h1>Privacy policy — Malakoot Face</h1>
+<p class="muted">Last updated: 25 November 2026. This policy applies to the Wear OS watch face “Malakoot Face” (package: info.malakoot.watchface).</p>
+<p>This watch face is a resource-only app. It contains no running code on your watch, and it collects no data and sends nothing to us.</p>
+<h2>What we do not collect</h2>
+<p>There is no account, sign-in, analytics or advertising. We do not receive your location, heart rate, steps, notifications, weather, or any device identifier. The watch face does not call any server of ours, does not use cookies, and we keep no logs of your use.</p>
+<h2>What you see on the watch</h2>
+<p>The time, date and Hijri (Umm al-Qura) calendar are computed on your watch from the system clock and settings. The map, its style, and the options you choose stay on the watch. If you turn weather on (Wear OS 5 and later), that data comes from the watch system, not from our servers. Complication slots (battery, steps, or prayer times from the Malakoot Wear app if you have it installed) are filled by the system or by the provider you pick; we do not receive that content.</p>
+<h2>Permissions</h2>
+<p>The app does not request any special permissions.</p>
+<h2>Children</h2>
+<p>The watch face is not directed at children under 13, and we do not collect their data.</p>
+<h2>Changes</h2>
+<p>If this policy changes, we will update this page and its date.</p>
+<h2>Owner</h2>
+<p>Malakoot, Saudi Arabia (Ablaj). Contact: <a href="mailto:team@malakoot.info">team@malakoot.info</a></p>
+<p>The privacy policy for the Malakoot Clock website and phone app is separate and is on <a href="privacy.html">this page</a>.</p>
+</section>
+<footer><div class="lang-ar">الحقوق الملكية الفكرية تعود لشركة ملكوت 2027 السعودية (أبلج Ablaj)</div>
+<div class="lang-en">Intellectual property rights © 2027 Malakoot, Saudi Arabia (Ablaj)</div></footer>
+</main></body></html>
