@@ -24,12 +24,13 @@
   gtag('config', id, { anonymize_ip: true, allow_google_signals: false, allow_ad_personalization_signals: false });
 })();
 </script>
-  <script type="module" crossorigin src="./assets/main-CBhX5l56.js"></script>
+  <script type="module" crossorigin src="./assets/main-Hjrqw4jd.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/gl-CQ1VO_Pu.js">
-  <link rel="stylesheet" crossorigin href="./assets/main-qVHq9UdI.css">
+  <link rel="stylesheet" crossorigin href="./assets/main-CdASf0Wq.css">
 </head>
 <body>
 <main id="stage"><canvas id="gl"></canvas><canvas id="wind"></canvas><canvas id="face" aria-label="ساعة الخريطة"></canvas></main>
+<button id="qiblaBtn" class="fab qb hidden" title="بوصلة القبلة" aria-label="Qibla compass">🧭</button>
 <button id="zoomReset" class="fab zr hidden" title="العودة إلى عرض المملكة" aria-label="العودة إلى عرض المملكة">⤢</button>
 <button id="kioskExit" class="fab kx hidden" title="خروج من وضع العرض" aria-label="Exit kiosk">✕</button>
 <div id="offline" class="badge hidden" data-en="Offline — weather and zoom tiles unavailable">غير متصل — الطقس وصور التكبير غير متاحة</div>
@@ -129,7 +130,7 @@
       <label><input type="checkbox" id="kMW" checked /> <span data-en="Milky Way">درب التبانة</span></label>
       <label><input type="checkbox" id="kUTC" checked /> <span data-en="UTC line">خط التوقيت العالمي</span></label>
     </div>
-    <label><input type="checkbox" id="tRim" /> <span data-en="Outer ring (calendar)">الحلقة الخارجية (التقويم)</span></label>
+    <label><input type="checkbox" id="tRim" /> <span data-en="Outer ring (calendar)">الحلقة الخارجية (التقويم)</span> <span class="pro">Pro</span></label>
     <div class="sub">
       <label><input type="checkbox" id="kManazil" checked /> <span data-en="Mansions & seasons">المنازل والمواسم</span></label>
       <label><input type="checkbox" id="kMonths" checked /> <span data-en="Months">الأشهر الميلادية</span></label>
@@ -137,7 +138,8 @@
       <label><input type="checkbox" id="kPointer" checked /> <span data-en="Sun pointer">مؤشر الشمس</span></label>
     </div>
     <label><input type="checkbox" id="kHijriRing" /> <span data-en="Hijri months ring (Umm al-Qura)">حلقة الأشهر الهجرية (أم القرى)</span></label>
-    <label><input type="checkbox" id="tQibla" checked /> <span data-en="Qibla line">خط القبلة</span></label>
+    <label><input type="checkbox" id="tQibla" checked /> <span data-en="Qibla line (straight on the map, with degree)">خط القبلة (مستقيم على الخريطة مع الدرجة)</span></label>
+    <div class="sub"><button id="qiblaCompass" class="chip hidden" type="button" data-en="🧭 Qibla compass">🧭 بوصلة القبلة</button></div>
     <label><input type="checkbox" id="tHilal" /> <span data-en="Crescent visibility zones (Yallop)">مناطق رؤية الهلال (يالوب)</span></label>
     <div class="sub"><label><span data-en="Month">الشهر</span> <select id="hilalMonth"></select></label></div>
     <label><input type="checkbox" id="tEclipse" checked /> <span data-en="Eclipses (Moon's shadow path)">الكسوف (مسار ظل القمر)</span> <span class="pro">Pro</span></label>
@@ -175,7 +177,7 @@
     <label><input type="checkbox" id="tSaver" /> <span data-en="Battery saver (lower frame rate, no animation)">توفير البطارية (إطارات أقل وبلا حركة)</span></label>
   </div>
   <details id="shadowTool" class="tool">
-    <summary data-en="🧍 Shadow tool & Asr">🧍 أداة الظل ووقت العصر</summary>
+    <summary><span data-en="🧍 Shadow tool & Asr">🧍 أداة الظل ووقت العصر</span> <span class="pro">Pro</span></summary>
     <div class="row"><label class="lbl" for="shH" data-en="Object height (m)">طول الشاخص (م)</label><input id="shH" type="number" min="0.1" max="500" step="0.1" value="1.7" /></div>
     <div id="shOut" class="sh-out"></div>
   </details>
@@ -205,13 +207,22 @@
       </div>
     </div>
     <div id="accBuy" class="hidden">
-      <div class="muted" data-en="Malakoot Pro — weather, high zoom, stars, planets, eclipses, widget">ملكوت Pro — الطقس والتكبير العالي والنجوم والكواكب والكسوف والودجت</div>
+      <div class="muted" data-en="Malakoot Pro — weather, high zoom, stars, planets, eclipses, shadow tool, calendar ring, widget">ملكوت Pro — الطقس والتكبير العالي والنجوم والكواكب والكسوف وأداة الظل وحلقة التقويم والودجت</div>
       <div class="row">
         <button class="chip on" data-buy="yearly"><span data-en="Yearly">سنوي</span> · <span class="price">99 SAR</span></button>
         <button class="chip" data-buy="monthly"><span data-en="Monthly">شهري</span> · <span class="price">12 SAR</span></button>
         <button class="chip" data-buy="lifetime"><span data-en="Lifetime">مدى الحياة</span> · <span class="price">249 SAR</span></button>
         <button id="accRestore" class="chip" data-en="Restore purchases">استعادة المشتريات</button>
       </div>
+    </div>
+    <div id="promo" class="promo">
+      <div class="promo-h"><span data-en="🎁 Have a code?">🎁 لديك كود؟</span> <span id="promoState" class="muted"></span></div>
+      <div class="row promo-row">
+        <input id="promoCode" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="40" placeholder="أدخل الكود" data-ph-en="Enter code" dir="ltr" />
+        <button id="promoBtn" class="chip on" type="button" data-en="Activate">تفعيل</button>
+      </div>
+      <span class="muted" data-en="A code unlocks all Pro features for its period (one use per code), then the app returns to the free plan.">يفتح الكود جميع مزايا Pro طوال مدته (يُستخدم مرة واحدة)، ثم يعود التطبيق إلى الباقة المجانية.</span>
+      <div id="promoMsg" class="muted"></div>
     </div>
     <div id="accMsg" class="muted"></div>
   </details>

@@ -1,0 +1,9 @@
+import{a as e,f as t,o as n}from"./main-Hjrqw4jd.js";var r=(e,n)=>t()?n:e;function i(t){document.getElementById(`upsell`)?.remove();let i=document.createElement(`div`);i.id=`upsell`,i.className=`upsell-wrap`,i.innerHTML=`<section class="upsell glass" role="dialog" aria-modal="true">
+    <div class="up-lock">🔒</div>
+    <div class="up-h">${t?`${r(t.ar,t.en)} — `:``}${r(`ميزة Pro`,`a Pro feature`)}</div>
+    <p class="up-p">${r(`مزايا ملكوت Pro: الطقس الحي، التكبير العالي، الخريطة النجمية، الكواكب، الكسوف، أداة الظل، حلقة التقويم، والودجت. القبلة (الخط والدرجة والبوصلة) مجانية دائماً.`,`Malakoot Pro: live weather, high zoom, star chart, planets, eclipses, shadow tool, calendar ring and the widget. The qibla (line, degree and compass) is always free.`)}</p>
+    <div class="row up-row">
+      <button class="chip on" type="button" data-up="buy">${r(`اشترك في Pro`,`Get Pro`)}</button>
+      <button class="chip" type="button" data-up="code">🎁 ${r(`لدي كود`,`I have a code`)}</button>
+      <button class="chip" type="button" data-up="x">${r(`لاحقاً`,`Later`)}</button>
+    </div></section>`,document.body.appendChild(i);let a=()=>i.remove();i.addEventListener(`click`,t=>{let r=t.target.closest(`[data-up]`);if(t.target===i)return a();if(!r||(a(),r.dataset.up===`x`))return;e(!0),n(`account`);let o=document.getElementById(`acc`);o&&(o.open=!0);let s=document.getElementById(r.dataset.up===`code`?`promoCode`:`accBuy`),c=s&&!s.classList.contains(`hidden`)?s:document.getElementById(`promoCode`);setTimeout(()=>{c?.scrollIntoView({block:`center`,behavior:`smooth`}),c instanceof HTMLInputElement&&c.focus()},350)})}export{i as showUpsell};
